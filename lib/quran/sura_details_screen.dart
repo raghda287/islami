@@ -46,7 +46,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           body: Container(
             margin:EdgeInsets.symmetric(vertical: 40,horizontal: 24),
             decoration: BoxDecoration(
-              color: Colors.white60,
+              color: Colors.white70,
               borderRadius: BorderRadius.circular(24),
 
             ),
