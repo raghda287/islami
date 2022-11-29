@@ -1,5 +1,8 @@
 class SuraDetails{
-  int index;
   String name;
-  SuraDetails(this.index,this.name);
+
+  int index;
+
+  SuraDetails(this.name,this.index);
+
 }

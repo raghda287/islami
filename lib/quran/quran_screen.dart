@@ -135,7 +135,7 @@ class QuranScreen extends StatelessWidget {
             ),
             shrinkWrap: false,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => SuraNameWidget(SuraNames[index]),
+            itemBuilder: (context, index) => SuraNameWidget(SuraNames[index],index),
             itemCount: SuraNames.length,
           )),
         ],
