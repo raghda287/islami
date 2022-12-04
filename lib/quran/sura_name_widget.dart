@@ -5,7 +5,8 @@ import 'package:islami_app/quran/sura_details_screen.dart';
 class SuraNameWidget extends StatelessWidget {
 
 String title;
-SuraNameWidget(this.title);
+int index;
+SuraNameWidget(this.title,this.index);
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -13,7 +14,7 @@ SuraNameWidget(this.title);
 
         Navigator.pushNamed(
           context,SuraDetailsScreen.routeName,
-          arguments:SuraDetails(0, title),
+          arguments:SuraDetails(title, index),
             );
         
       },
@@ -21,7 +22,7 @@ SuraNameWidget(this.title);
         child: Center(
           child: Text(
             title
-            ,style: Theme.of(context).textTheme.headline1,
+            ,style: Theme.of(context).textTheme.headline2,
           ),
         ),
       ),
