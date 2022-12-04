@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/my_theme.dart';
+import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/sura_details.dart';
 import 'package:islami_app/quran/verse_item.dart';
+import 'package:islami_app/my_theme.dart';
+import 'package:islami_app/settings/settings_screen.dart';
+import 'package:provider/provider.dart';
+
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'SuraDetailsScreen';
@@ -18,6 +23,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider=Provider.of<SettingProvider>(context);
     var args =
     ModalRoute
         .of(context)
@@ -27,10 +33,11 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       readFile(args.index);
     }
     return Container(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage('assets/images/main_background.png'),
+        image: AssetImage( settingsProvider.getMainBackground(),
+          ),
           ),
         ),
         child: Scaffold(
@@ -40,25 +47,30 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
               style: Theme
                   .of(context)
                   .textTheme
-                  .headline1,
+                  .headline2,
             ),
           ),
           body: Container(
-            margin:EdgeInsets.symmetric(vertical: 40,horizontal: 24),
-            decoration: BoxDecoration(
-              color: Colors.white70,
-              borderRadius: BorderRadius.circular(24),
-
-            ),
-            child:
-                verses.length==0? Center(child: CircularProgressIndicator(color: Theme.of(context).primaryColor,)):
-            ListView.separated(
-              itemBuilder: (context, index) => (VerseItem( verses[index],index+1)),
-              itemCount: verses.length,
-              separatorBuilder: (context, index) =>
-              const Divider(
-                thickness: 2,
-                color: MyTheme.primaryColor,
+            width: double.infinity,
+            height: double.infinity,
+            child: Card(
+              color:Theme.of(context).cardColor,
+              elevation: 10,
+              margin:EdgeInsets.symmetric(vertical: 66,horizontal: 24),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child:
+                  verses.length==0? Center(child: CircularProgressIndicator(color: Theme.of(context).primaryColor,)):
+              ListView.separated(
+                itemBuilder: (context, index) => (VerseItem( verses[index],index+1)),
+                itemCount: verses.length,
+                separatorBuilder: (context, index) =>
+                 Padding(
+                   padding: const EdgeInsets.only(left: 25,right: 25),
+                   child: Divider(
+                    thickness: 2,
+                    color: Theme.of(context).accentColor,
+                ),
+                 ),
               ),
             ),
           ),

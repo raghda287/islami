@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:islami_app/my_theme.dart';
 
 class VerseItem extends StatelessWidget {
   String text;
@@ -13,9 +15,7 @@ class VerseItem extends StatelessWidget {
         textAlign: TextAlign.center,
         textDirection: TextDirection.rtl,
 
-        style: TextStyle(
-          fontSize: 18,
-        ),
+        style: Theme.of(context).textTheme.headline4,
       ),
     );
   }

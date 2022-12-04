@@ -129,13 +129,13 @@ class QuranScreen extends StatelessWidget {
               child: ListView.separated(
             separatorBuilder: (context, index) => Container(
               margin: const EdgeInsets.symmetric(horizontal: 26),
-              color: MyTheme.primaryColor,
+              color: Theme.of(context).accentColor,
               width: double.infinity,
-              height: 1,
+              height: 0.8,
             ),
             shrinkWrap: false,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => SuraNameWidget(SuraNames[index],index),
+            itemBuilder: (context, index) => SuraNameWidget(SuraNames[index],index,),
             itemCount: SuraNames.length,
           )),
         ],
