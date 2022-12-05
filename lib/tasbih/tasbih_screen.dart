@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/my_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasbihScreen extends StatefulWidget {
 
@@ -19,7 +20,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
             children: [
               Image.asset('assets/images/tasbeeh_image.png',height: 270,),
               const SizedBox(height: 50,),
-              Text('Number of tasbeeh',style: TextStyle(fontSize: 20),),
+              Text(AppLocalizations.of(context)!.numberTasbih,style: Theme.of(context).textTheme.headline4),
               const SizedBox(height: 20,),
 
               Container(
@@ -27,11 +28,11 @@ width: 55,
                 height: 60,
                 decoration: BoxDecoration(
 
-                  color: MyTheme.primaryColor,
+                  color: MyTheme.lightPrimary,
 
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: Center(child:  Text("${counter}",style: const TextStyle(fontSize: 20),)),),
+                child: Center(child:  Text("${counter}",style:Theme.of(context).textTheme.headline4,)),),
               const SizedBox(height: 30,),
 
               ElevatedButton(
@@ -41,7 +42,7 @@ width: 55,
                             borderRadius: BorderRadius.circular(25),
                      )
                     ),
-                      backgroundColor: MaterialStateProperty.all(MyTheme.primaryColor,)),
+                      backgroundColor: MaterialStateProperty.all(MyTheme.lightPrimary,)),
                   onPressed: (){
                     setState(() {
                       counter++;
@@ -52,7 +53,7 @@ width: 55,
 
                       }
                     });
-                  }, child: Text(text,style: TextStyle(fontSize: 30,),))
+                  }, child: Text(text,style:Theme.of(context).textTheme.headline2))
             ],
           ),
         ),
