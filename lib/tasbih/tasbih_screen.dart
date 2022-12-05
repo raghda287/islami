@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/my_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasbihScreen extends StatefulWidget {
 
@@ -19,7 +20,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
             children: [
               Image.asset('assets/images/tasbeeh_image.png',height: 270,),
               const SizedBox(height: 50,),
-              Text('Number of tasbeeh',style: Theme.of(context).textTheme.headline4),
+              Text(AppLocalizations.of(context)!.numberTasbih,style: Theme.of(context).textTheme.headline4),
               const SizedBox(height: 20,),
 
               Container(

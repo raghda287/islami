@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/settings/language_bottom_sheet.dart';
 import 'package:islami_app/settings/theme_bottom_sheet.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class SettingsScreen extends StatefulWidget {
@@ -17,7 +19,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child:Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Theme',style: Theme.of(context).textTheme.subtitle2,),
+            Text(AppLocalizations.of(context)!.theme,style: Theme.of(context).textTheme.subtitle2,),
             SizedBox(height: 8,),
             InkWell(
               onTap: (){
@@ -29,17 +31,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     border:Border.all(color:Theme.of(context).accentColor, )),
               child:Padding(
                 padding: const EdgeInsets.all(12.0),
-                child: Text('Dark',style: Theme.of(context).textTheme.headline4,),
+                child: Text(AppLocalizations.of(context)!.light,style: Theme.of(context).textTheme.headline4,),
               ),
               ),
             ),
             SizedBox(height: 24,),
 
-            Text('language',style: Theme.of(context).textTheme.subtitle2,),
+            Text(AppLocalizations.of(context)!.language,style: Theme.of(context).textTheme.subtitle2,),
             SizedBox(height: 8,),
             InkWell(
               onTap: (){
-                bottomSheetTheme();
+                showLanguageBottomSheet();
 
               },
               child: Container(
@@ -48,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     border:Border.all(color:Theme.of(context).accentColor, )),
                 child:Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: Text('English',style: Theme.of(context).textTheme.headline4,),
+                  child: Text(AppLocalizations.of(context)!.english,style: Theme.of(context).textTheme.headline4,),
                 ),
               ),
             ),
@@ -61,6 +63,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void bottomSheetTheme(){
     showModalBottomSheet(context: context, builder: (BuildContext){
       return ThemeBottomSheet();
+    });
+  }
+  void showLanguageBottomSheet(){
+    showModalBottomSheet(context: context, builder: (BuildContext){
+      return LanguageBottomSheet();
     });
   }
 }
