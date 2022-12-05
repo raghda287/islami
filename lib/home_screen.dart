@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/compass/compass_screen.dart';
 import 'package:islami_app/hadeth/hadeth_screen.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/quran_screen.dart';
@@ -55,6 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/images/all_quran.png')),
                 label: AppLocalizations.of(context)!.hadeth),
+
+            BottomNavigationBarItem(
+                icon: Icon(Icons.compass_calibration),
+                label: AppLocalizations.of(context)!.settings),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
                 label: AppLocalizations.of(context)!.settings),
@@ -72,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
     RadioScreen(),
     TasbihScreen(),
     HadethScreen(),
+    CompassScreen(),
     SettingsScreen(),
   ];
 }
