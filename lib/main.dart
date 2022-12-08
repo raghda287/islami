@@ -5,6 +5,7 @@ import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/sura_details_screen.dart';
 import 'package:islami_app/splash_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var settingsProvider=Provider.of<SettingProvider>(context);
     return MaterialApp(
+      locale: Locale(settingsProvider.appLanguage),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       themeMode: settingsProvider.currentMode,

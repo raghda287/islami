@@ -31,7 +31,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared_preferences: ^2.0.15
+  flutter_compass: '^0.7.0'
+  permission_handler:
   provider: ^6.0.4
+  flutter_localizations: # Add this line
+
+    sdk: flutter         # Add this line
+  intl: ^0.17.0
+
 
 
 
@@ -57,6 +65,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

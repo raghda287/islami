@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:islami_app/home_screen.dart';
+import 'package:islami_app/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
 static const String routeName='splash';
@@ -20,9 +22,13 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    var settingsProvider=Provider.of<SettingProvider>(context);
     return Scaffold(
       body: Container(
-      child: Image.asset('assets/images/splash_screen.png',fit: BoxFit.fill,),
+      child: Image.asset(
+        settingsProvider.currentMode==ThemeMode.light?
+          'assets/images/splash_screen.png'
+            :'assets/images/splash_dark.png',fit: BoxFit.fill,),
       ),
     );
   }

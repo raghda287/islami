@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islami_app/my_theme.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/quran/sura_details.dart';
 import 'package:islami_app/quran/verse_item.dart';
-import 'package:islami_app/my_theme.dart';
-import 'package:islami_app/settings/settings_screen.dart';
 import 'package:provider/provider.dart';
 
 
