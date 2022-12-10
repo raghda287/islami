@@ -129,9 +129,9 @@ class QuranScreen extends StatelessWidget {
               child: ListView.separated(
             separatorBuilder: (context, index) => Container(
               margin: const EdgeInsets.symmetric(horizontal: 26),
-              color: Theme.of(context).accentColor,
+              color: MyTheme.lightPrimary,
               width: double.infinity,
-              height: 0.8,
+              height: 1.5,
             ),
             shrinkWrap: false,
             physics: const BouncingScrollPhysics(),
