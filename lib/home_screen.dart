@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/compass/compass_screen.dart';
 import 'package:islami_app/hadeth/hadeth_screen.dart';
 import 'package:islami_app/providers/settings_provider.dart';
+import 'package:islami_app/qibla/qibla_screen.dart';
 import 'package:islami_app/quran/quran_screen.dart';
 import 'package:islami_app/radio/radio_screen.dart';
 import 'package:islami_app/settings/settings_screen.dart';
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: tabs[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+
           currentIndex: selectedIndex,
           onTap: (index) {
             setState(() {
@@ -48,19 +50,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon:const ImageIcon(AssetImage('assets/images/quran.png')),
                 label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
+                backgroundColor:Theme.of(context).primaryColor,
+
                 icon: ImageIcon(AssetImage('assets/images/radio.png')),
                 label: AppLocalizations.of(context)!.radio),
             BottomNavigationBarItem(
+                backgroundColor:Theme.of(context).primaryColor,
+
                 icon: ImageIcon(AssetImage('assets/images/sebha.png')),
                 label: AppLocalizations.of(context)!.tasbeh),
             BottomNavigationBarItem(
+                backgroundColor:Theme.of(context).primaryColor,
+
                 icon: ImageIcon(AssetImage('assets/images/all_quran.png')),
                 label: AppLocalizations.of(context)!.hadeth),
 
             BottomNavigationBarItem(
-                icon: Icon(Icons.compass_calibration),
+                backgroundColor:Theme.of(context).primaryColor,
+
+                icon:  Icon(Icons.compass_calibration),
                 label: AppLocalizations.of(context)!.settings),
             BottomNavigationBarItem(
+                backgroundColor:Theme.of(context).primaryColor,
+
                 icon: Icon(Icons.settings),
                 label: AppLocalizations.of(context)!.settings),
           ],
@@ -77,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
     RadioScreen(),
     TasbihScreen(),
     HadethScreen(),
-    CompassScreen(),
+    QiblahCompass(),
     SettingsScreen(),
   ];
 }

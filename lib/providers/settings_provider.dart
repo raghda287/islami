@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingProvider extends ChangeNotifier{
   ThemeMode currentMode=ThemeMode.light;
 
   String appLanguage='en';
 
-  void changeLanguage(String newLanguage){
+  void changeLanguage(String newLanguage)async{
+    final pref=await SharedPreferences.getInstance();
+if(newLanguage==appLanguage){
+  return;
+}
     appLanguage=newLanguage;
-    notifyListeners();
+   pref.setString('language',newLanguage);
+   notifyListeners();
 }
 
 
-  void changeTheme(ThemeMode newMode){
+  void changeTheme(ThemeMode newMode)async{
+    final pref=await SharedPreferences.getInstance();
+if(newMode==currentMode){
+  return;
+}
     currentMode=newMode;
+    pref.setString('theme', currentMode==ThemeMode.dark?'dark':'light');
     notifyListeners();
   }
   String getMainBackground(){
@@ -22,6 +33,7 @@ class SettingProvider extends ChangeNotifier{
 
   }
    bool isDarkMode(){
+
     return currentMode==ThemeMode.dark;
 
   }
