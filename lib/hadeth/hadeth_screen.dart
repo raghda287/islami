@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/hadeth/hadeth_model.dart';
+import 'package:islami_app/hadeth/hadeth_title_widget.dart';
 
 import '../my_theme.dart';
 
@@ -10,37 +11,31 @@ class HadethScreen extends StatefulWidget {
 }
 
 class _HadethScreenState extends State<HadethScreen> {
+  List<HadethModel> allHadethItems=[];
 
   @override
   Widget build(BuildContext context) {
-
+if(allHadethItems.isEmpty)
       readHadeth();
 
     return Scaffold(
       body: Column(
         children: [
           Image.asset('assets/images/hadeth.png'),
-          const Divider(
-            thickness: 3,
-            color: MyTheme.lightPrimary,
-          ),
-          const Text(
-            'hadeth Name',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
-          ),
-          const Divider(
-            thickness: 3,
-            color: MyTheme.lightPrimary,
-          ),
+
           Expanded(
-              child: ListView.separated(
+
+              child:allHadethItems.isEmpty?
+              Center(child: CircularProgressIndicator()):ListView.separated(
             shrinkWrap: false,
             physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) => Text('d'
+            itemBuilder: (context, index) => HadethTitleWidget(allHadethItems[index]
             ),
-            itemCount: 10, separatorBuilder: (BuildContext context, int index) =>  const Divider(
-                thickness: 2,
+            itemCount: allHadethItems.length, separatorBuilder: (BuildContext context, int index) =>  Container(
+                margin: const EdgeInsets.symmetric(horizontal: 26),
                 color: MyTheme.lightPrimary,
+                width: double.infinity,
+                height: 1.5,
               ),
           )),
         ],
@@ -49,25 +44,22 @@ class _HadethScreenState extends State<HadethScreen> {
   }
 
   void readHadeth() async {
-    //read file from assets
-    var fileContent = await rootBundle.loadString('assets/files/ahadeth.txt');
+List<HadethModel> allHadeth=[];
+var fileContent = await rootBundle.loadString('assets/files/ahadeth.txt');
     //separate each hadeth with #
-    var allHadethContent = fileContent.trim().split('#\n');
+    var allHadethContent = fileContent.trim().split("#");
 
     for (int i = 0; i < allHadethContent.length; i++) {
-      var SingleHadethContent=allHadethContent[i];
-      var singleHadethLine=SingleHadethContent.trim().split('\n');
+      String SingleHadethContent=allHadethContent[i];
+      var singleHadethLine=SingleHadethContent.trim().split('\r\n');
       String title=singleHadethLine[0];
       singleHadethLine.removeAt(0);
-     String content= allHadethContent.join('\n');
+     String content= singleHadethLine.join('\n');
      HadethModel hadeth=HadethModel(title: title, content: content);
-     print(title);
-     print('==================');
-     print(content);
-      print('==================');
+     allHadeth.add(hadeth);
 
 setState(() {
-
+allHadethItems=allHadeth;
 });
     }
   }

@@ -26,7 +26,7 @@ class MyTheme {
       iconTheme: IconThemeData(color: Colors.black)
     ),
     textTheme: const TextTheme(
-        headline2: TextStyle(fontSize: 25,color: Colors.black),
+        headline2: TextStyle(fontSize: 23,color: Colors.black),
         headline4: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.black),
       subtitle2:TextStyle(fontSize: 14,color: Colors.black)
     ),
@@ -70,7 +70,7 @@ selectedIconTheme: IconThemeData(
       iconTheme: IconThemeData(color: Colors.white)
     ),
     textTheme: const TextTheme(
-        headline2: TextStyle(fontSize: 25,color: Colors.white),
+        headline2: TextStyle(fontSize: 23,color: Colors.white),
         headline4: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),
         subtitle2:TextStyle(fontSize: 14,color: Colors.white)
     ),

@@ -56,7 +56,7 @@ class _QiblahCompassState extends State<QiblahCompass> {
         builder: (context, AsyncSnapshot<LocationStatus> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(color: MyTheme.lightPrimary,),
             );
           }
           if (snapshot.data!.enabled == true) {
