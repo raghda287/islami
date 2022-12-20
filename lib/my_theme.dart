@@ -79,11 +79,11 @@ selectedIconTheme: IconThemeData(
 
 bottomNavigationBarTheme: const BottomNavigationBarThemeData(
 selectedIconTheme: IconThemeData(
-  size: 40,
+  size: 45,
   color: yellow,
 ),
   unselectedIconTheme: IconThemeData(
-    size: 35,
+    size: 30,
     color: Colors.white,
   ),
   selectedItemColor: yellow,

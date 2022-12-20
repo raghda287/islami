@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
     getValueFromSharedPreferences();
          settingProvider = Provider.of<SettingProvider>(context);
         return MaterialApp(
+
           locale: Locale(settingProvider.appLanguage),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

@@ -68,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 backgroundColor:Theme.of(context).primaryColor,
 
-                icon:  Icon(Icons.compass_calibration),
-                label: AppLocalizations.of(context)!.settings),
+                icon:  Icon(Icons.mosque),
+                label: AppLocalizations.of(context)!.qibla),
             BottomNavigationBarItem(
                 backgroundColor:Theme.of(context).primaryColor,
 
